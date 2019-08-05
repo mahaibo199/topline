@@ -24,6 +24,7 @@
 <script>
 // 引入封装的方法
 import store from '@/store'
+// import { async } from 'q'
 export default {
   data () {
     const checkAge = (rule, value, callback) => {
@@ -49,13 +50,20 @@ export default {
   },
   methods: {
     login () {
-      this.$refs.formLabel.validate((valid) => {
-        if (valid) {
-          this.$http.post('authorizations', this.formLabel).then(result => {
-            // 在跳转的时候,调用srore封装的方法,存储用户信息
-            store.setUser(result.data.data)
-            this.$router.push({ path: '/' })
-          })
+      this.$refs.formLabel.validate(async valid => {
+        // if (valid) {
+        //   this.$http.post('authorizations', this.formLabel).then(result => {
+        //     // 在跳转的时候,调用srore封装的方法,存储用户信息
+        //     store.setUser(result.data.data)
+        //     this.$router.push({ path: '/' })
+        //   })
+        // }
+        try {
+          const { data: { data } } = await this.$http.post('authorizations', this.formLabel)
+          store.setUser(data)
+          this.$router.push({ path: '/' })
+        } catch (e) {
+          this.$message.error('手机号或者验证码输入错误')
         }
       })
     }
