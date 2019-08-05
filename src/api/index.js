@@ -11,6 +11,7 @@ axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0/'
 axios.interceptors.request.use((config) => {
   // 在发送请求之前做些什么
   // 修改config,追加headers
+  
   config.headers = {
     Authorization: `Bearer ${store.getUser().token}`
   }
