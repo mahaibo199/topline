@@ -49,15 +49,15 @@
         <el-dropdown>
           <span class="el-dropdown-link">
             <img
-              src="../../assets/img/avatar.jpg"
+              :src="photo"
               style="width:30px;heigth:30px;vertical-align:middle"
             />
-            用户名称
+            {{names}}
             <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>个人设置</el-dropdown-item>
-            <el-dropdown-item>退出登录</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-setting" @click.native="setting">个人设置</el-dropdown-item>
+            <el-dropdown-item icon="el-icon-unlock" @click.native="loginout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-header>
@@ -69,15 +69,31 @@
 </template>
 
 <script>
+import store from '@/store'
 export default {
   data () {
     return {
-      isCollapse: false
+      isCollapse: false,
+      names: '',
+      photo: ''
     }
+  },
+  created () {
+    const user = store.getUser()
+    this.names = user.names
+    this.photo = user.photo
   },
   methods: {
     switchover () {
       this.isCollapse = !this.isCollapse
+    },
+    setting () {
+      this.$router.push('./setting')
+    },
+    loginout () {
+      // name方法
+      store.clearUser()
+      this.$router.push({ name: 'login' })
     }
   }
 }

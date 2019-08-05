@@ -33,8 +33,8 @@ export default {
     }
     return {
       formLabel: {
-        mobile: '',
-        code: ''
+        mobile: '18532103401',
+        code: '246810'
       },
       loginRules: {
         mobile: [

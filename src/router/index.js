@@ -6,6 +6,7 @@ import Home from '@/views/home/login.vue'
 import Welcome from '@/views/welcome/welcome.vue'
 import Undefined from '@/views/404/404.vue'
 import Article from '@/views/article/index.vue'
+import Setting from '@/views/setting/setting.vue'
 // 首先引入之前封装的获取登录信息的方法
 import store from '@/store'
 Vue.use(VueRouter)
@@ -32,6 +33,11 @@ const router = new VueRouter({
           path: '/article',
           name: 'article',
           component: Article
+        },
+        {
+          path: '/setting',
+          name: 'setting',
+          component: Setting
         }
       ]
 
