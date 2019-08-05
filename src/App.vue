@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    哈哈
+    <el-switch></el-switch>
   </div>
 </template>
 
