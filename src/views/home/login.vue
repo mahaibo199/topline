@@ -52,7 +52,7 @@
               :src="photo"
               style="width:30px;heigth:30px;vertical-align:middle"
             />
-            {{names}}
+            {{name}}
             <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
@@ -80,7 +80,7 @@ export default {
   },
   created () {
     const user = store.getUser()
-    this.names = user.names
+    this.name = user.name
     this.photo = user.photo
   },
   methods: {

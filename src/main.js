@@ -6,7 +6,8 @@ import router from '@/router'
 import '@/style/base.less'
 
 import axios from '@/api'
-
+import myCom from '@/components'
+Vue.use(myCom)
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false

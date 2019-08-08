@@ -7,6 +7,7 @@ import Welcome from '@/views/welcome/welcome.vue'
 import Undefined from '@/views/404/404.vue'
 import Article from '@/views/article/index.vue'
 import Setting from '@/views/setting/setting.vue'
+import Image from '@/views/image/image.vue'
 // 首先引入之前封装的获取登录信息的方法
 import store from '@/store'
 Vue.use(VueRouter)
@@ -38,6 +39,11 @@ const router = new VueRouter({
           path: '/setting',
           name: 'setting',
           component: Setting
+        },
+        {
+          path: '/image',
+          name: 'image',
+          component: Image
         }
       ]
 

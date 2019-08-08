@@ -1,14 +1,26 @@
 import axios from 'axios'
 import store from '@/store'
 import router from '../router'
+import jsonBig from 'json-bigint'
 axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0/'
 // 这种只能获取一次,需要刷新
 // axios.defaults.headers = {
 //   Authorization: `Bearer ${store.getUser.token}`
 // }
+// 数字最大安全值封装
+axios.defaults.transformResponse = [
+  (data) => {
+    try {
+      return jsonBig.parse(data)
+    } catch (e) {
+      return data
+    }
+  }
+]
+
 // 添加请求拦截器
 axios.interceptors.request.use((config) => {
-  // 在发送请求之前做些什么
+  // 在发送请求之前做些什么的
   // 修改config,追加headers
   config.headers = {
     Authorization: `Bearer ${store.getUser().token}`
