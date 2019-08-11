@@ -8,6 +8,8 @@ import Undefined from '@/views/404/404.vue'
 import Article from '@/views/article/index.vue'
 import Setting from '@/views/setting/setting.vue'
 import Image from '@/views/image/image.vue'
+import Publish from '@/views/publish/my-publish.vue'
+import Comment from '@/views/comment/comment.vue'
 // 首先引入之前封装的获取登录信息的方法
 import store from '@/store'
 Vue.use(VueRouter)
@@ -44,6 +46,16 @@ const router = new VueRouter({
           path: '/image',
           name: 'image',
           component: Image
+        },
+        {
+          path: '/publish',
+          name: 'publish',
+          component: Publish
+        },
+        {
+          path: '/comment',
+          name: 'comment',
+          component: Comment
         }
       ]
 

@@ -107,7 +107,7 @@ export default {
   },
   methods: {
     edit (id) {
-      this.$router.push(`/publish${id}`)
+      this.$router.push(`/publish?id=${id}`)
     },
     // 删除功能,有有数字最大安全值问题封装下载json-bigint
     del (id) {
