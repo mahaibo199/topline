@@ -36,7 +36,7 @@
           <i class="el-icon-present"></i>
           <span slot="title">粉丝管理</span>
         </el-menu-item>
-        <el-menu-item index="setting">
+        <el-menu-item index="/setting">
           <i class="el-icon-setting"></i>
           <span slot="title">个人设置</span>
         </el-menu-item>
@@ -70,15 +70,22 @@
 
 <script>
 import store from '@/store'
+import eventBus from '@/components/eventBus.js'
 export default {
   data () {
     return {
       isCollapse: false,
-      names: '',
+      name: '',
       photo: ''
     }
   },
   created () {
+    eventBus.$on('updateName', (name) => {
+      this.name = name
+    })
+    eventBus.$on('updatePhoto', (photo) => {
+      this.photo = photo
+    })
     const user = store.getUser()
     this.name = user.name
     this.photo = user.photo

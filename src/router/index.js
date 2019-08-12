@@ -10,6 +10,7 @@ import Setting from '@/views/setting/setting.vue'
 import Image from '@/views/image/image.vue'
 import Publish from '@/views/publish/my-publish.vue'
 import Comment from '@/views/comment/comment.vue'
+import Fans from '@/views/fans/fans.vue'
 // 首先引入之前封装的获取登录信息的方法
 import store from '@/store'
 Vue.use(VueRouter)
@@ -56,7 +57,11 @@ const router = new VueRouter({
           path: '/comment',
           name: 'comment',
           component: Comment
-        }
+        },
+        {
+          path: '/fans',
+          name: 'fans',
+          component: Fans }
       ]
 
     },

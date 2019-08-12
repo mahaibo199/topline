@@ -4,7 +4,9 @@ const Key = 'toutiao-user'
 export default {
   setUser (user) {
     //   设置存储的信息,
-    window.sessionStorage.setItem(Key, JSON.stringify(user))
+    const localUser = this.getUser()
+    const newUser = { ...localUser, ...user }
+    window.sessionStorage.setItem(Key, JSON.stringify(newUser))
   },
   getUser () {
     //   获取存储的信息
